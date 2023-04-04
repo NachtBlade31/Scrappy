@@ -1,0 +1,19 @@
+User wants to automate the process of checking for available slot and if any store the slots in the cart
+
+The booked slots will be available for 15 mins, so once the slots are added into  cart, a message is sent to user in order to notify him of the same
+
+Assumption:
+User will manually login We will innto the site to bypass the captcha and user will have a working laptop in place where the script will run
+
+
+Plan of Action:
+
+We will scrap the website to see if any slot is available, 
+if there is a slot we will automate to navigate and book the slot , and send a notification to user
+if not we will sleep
+we will run the code every 5 mins
+Website Link: https://www.gov.uk/book-pupil-driving-test
+
+Credentials :
+Username: 158892383281
+Pwd: FdHhNt@D5h.5@S*
