@@ -29,8 +29,8 @@ def reserveTest(driver, BOOKED_SLOT_COUNT):
 
 
 def bookSlot():
-    username = "158892383281"
-    password = "FdHhNt@D5h.5@S*"
+    username = ""
+    password = ""
 
     driver = uc.Chrome()
     driver.get('https://www.gov.uk/book-pupil-driving-test')
