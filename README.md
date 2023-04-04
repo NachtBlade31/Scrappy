@@ -1,2 +1,2 @@
 # Scrappy
-A small 
+A small App to automate Slot booking
