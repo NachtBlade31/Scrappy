@@ -29,8 +29,8 @@ def reserveTest(driver, BOOKED_SLOT_COUNT):
 
 
 def bookSlot():
-    username = ""
-    password = ""
+    username = "158892383281"
+    password = "FdHhNt@D5h.5@S*"
 
     driver = uc.Chrome()
     driver.get('https://www.gov.uk/book-pupil-driving-test')
@@ -55,7 +55,7 @@ def bookSlot():
     while True:
         # Select the test field
         select = Select(driver.find_element("id", "testcentregroups"))
-        select.select_by_value('157670')
+        select.select_by_value('154230')
         # TEST VALUE:157670
         # WEST VALUE:154230
 
@@ -96,7 +96,12 @@ def bookSlot():
             #print('send notification')
 
         # Wait for a minute before trying to book another slot
-        time.sleep(60)
+        time.sleep(15*60)
+        try:
+            wait.until(EC.element_to_be_clickable((By.CLASS_NAME, 'homeIcon'))).click()
+        except:
+            wait.until(EC.element_to_be_clickable((By.CLASS_NAME, 'largetext'))).click()
+
 
 
 bookSlot()
