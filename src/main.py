@@ -128,12 +128,9 @@ def bookSlot():
                         time.sleep(5)
                     wait = WebDriverWait(driver, 5)
                     try:
-                        print("Check for the previous availble week")
-                        wait.until(EC.element_to_be_clickable((By.ID, 'searchForWeeklySlotsPreviousAvailable'))).click()
                         wait.until(EC.element_to_be_clickable((By.CLASS_NAME, 'homeIcon'))).click()
                     except:
                         try:
-                            wait.until(EC.element_to_be_clickable((By.CLASS_NAME, 'largetext'))).click()
                             wait.until(EC.element_to_be_clickable((By.ID, 'searchForWeeklySlotsPreviousAvailable'))).click()
                         except:
                             continue
