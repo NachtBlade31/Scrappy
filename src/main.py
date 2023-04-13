@@ -122,7 +122,7 @@ def bookSlot():
 
                     if BOOKED_SLOT_COUNT>0:
                         print("Slots found. Sleeping for 15 mins")
-                        time.sleep(15*60)
+                        time.sleep(10*60)
                     else:
                         print("Slots Not found. Sleeping for 5 seconds")
                         time.sleep(5)
