@@ -1,9 +1,13 @@
-import undetected_chromedriver as uc
+
+from undetected_chromedriver import ChromeOptions,Chrome
 import time
 from selenium.webdriver.support.ui import Select
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.chrome.options import Options
+import ssl
+ssl._create_default_https_context = ssl._create_unverified_context
 
 def reserveTest(driver, BOOKED_SLOT_COUNT):
     ''' This function will book the slots on the slot booking page. 
@@ -11,6 +15,7 @@ def reserveTest(driver, BOOKED_SLOT_COUNT):
     '''
     # Wait for the page to load and for the links to be updated
     try:
+
         wait = WebDriverWait(driver, 30)
         links = wait.until(EC.presence_of_all_elements_located((By.XPATH, "//*[contains(@id, 'reserve_')]")))
         print("Links Identified...........")
@@ -39,7 +44,12 @@ def bookSlot():
 
         print("Starting the Chrome")
         try:
-            driver = uc.Chrome()
+            chrome_options = ChromeOptions()
+
+            # Add the debugging argument to the options object
+            chrome_options.add_argument("--remote-debugging-port=9222")
+
+            driver = Chrome(options=chrome_options)
         except Exception as e:
             print(str(e))
             time.sleep(30)
