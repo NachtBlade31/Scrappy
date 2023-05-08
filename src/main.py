@@ -16,7 +16,7 @@ def reserveTest(driver, BOOKED_SLOT_COUNT):
     # Wait for the page to load and for the links to be updated
     try:
 
-        wait = WebDriverWait(driver, 30)
+        wait = WebDriverWait(driver, 10)
         links = wait.until(EC.presence_of_all_elements_located((By.XPATH, "//*[contains(@id, 'reserve_')]")))
         print("Links Identified...........")
         while len(links) > 0 and BOOKED_SLOT_COUNT <= 10:
@@ -57,7 +57,7 @@ def bookSlot():
         driver.get('https://www.gov.uk/book-pupil-driving-test')
 
         # Wait for the "Start now" button to be clickable and perform the click action
-        wait = WebDriverWait(driver, 10)
+        wait = WebDriverWait(driver, 5)
 
         wait.until(EC.element_to_be_clickable((By.CLASS_NAME, 'govuk-button--start'))).click()
 
@@ -97,7 +97,7 @@ def bookSlot():
                 try:
                     DONE=False
                     # Wait for the "Next available" link to be clickable and perform the click action
-                    wait = WebDriverWait(driver, 10)
+                    wait = WebDriverWait(driver, 5)
                     element = wait.until(EC.presence_of_element_located((By.CLASS_NAME, 'slotsavailable')))
                     print("Aavailable slots identified.........................")
                     # Wait for the element to be clickable
@@ -134,9 +134,9 @@ def bookSlot():
                         print("Slots found. Sleeping for 15 mins")
                         time.sleep(10*60)
                     else:
-                        print("Slots Not found. Sleeping for 5 seconds")
-                        time.sleep(5)
-                    wait = WebDriverWait(driver, 5)
+                        print("Slots Not found. Sleeping for 2 seconds")
+                        time.sleep(2)
+                    wait = WebDriverWait(driver, 3)
                     try:
                         wait.until(EC.element_to_be_clickable((By.CLASS_NAME, 'homeIcon'))).click()
                     except:
